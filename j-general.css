@@ -9,6 +9,44 @@
 @charset "utf-8";
 /* CSS Document */
 
+.slideout-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 256px;
+  min-height: 100vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  z-index: 0;
+  display: none;
+}
+
+.slideout-menu-left {
+  left: 0;
+}
+
+.slideout-menu-right {
+  right: 0;
+}
+
+.slideout-panel {
+  position: relative;
+  z-index: 1;
+  will-change: transform;
+  background-color: #FFF; /* A background-color is required */
+  min-height: 100vh;
+}
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+  overflow: hidden;
+}
+
+.slideout-open .slideout-menu {
+  display: block;
+}
+
 header {
 	position: fixed;
     width: 100%;
@@ -75,8 +113,12 @@ div.section {
 
 @media only screen and (max-width: 1000px) {
 
-		#hamburger {
+	#hamburger {
 		visibility: visible; /* display hamburger button below this width */
+	}
+
+	.nav {
+		visibility: hidden;
 	}
 
 }
