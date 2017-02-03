@@ -1,5 +1,63 @@
+/*TODO:
+
+	- sub viewport for @media
+	- hamburger button below 1k px
+	- dock navbar
+
+*/
+
 @charset "utf-8";
 /* CSS Document */
+
+.slideout-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 256px;
+  min-height: 100vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  z-index: 0;
+  display: none;
+}
+
+.slideout-menu-left {
+  left: 0;
+}
+
+.slideout-menu-right {
+  right: 0;
+}
+
+.slideout-panel {
+  position: relative;
+  z-index: 1;
+  will-change: transform;
+  background-color: #FFF; /* A background-color is required */
+  min-height: 100vh;
+}
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+  overflow: hidden;
+}
+
+.slideout-open .slideout-menu {
+  display: block;
+}
+
+header {
+	position: fixed;
+    width: 100%;
+    z-index: 1;
+    left: 0px;
+    top: 0px;
+}
+
+#hamburger {
+	visibility: hidden;
+}
 
 body {
 	background-color: #342469;
@@ -7,6 +65,10 @@ body {
 	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	color:#FFF;
 	font-size:13px;
+}
+
+p {
+	display: block;
 }
 
 img.title {
@@ -43,18 +105,95 @@ div.section {
 	text-align: justify;
 	z-index: 7;
 }
-   
-#wrapper .ChristinaSpeech {
-	visibility:hidden;
+
+
+#teamphoto {
+	float: right;
+	margin: 25px;
 }
 
-#wrapper:hover .ChristinaSpeech {
+@media only screen and (max-width: 1000px) {
+
+	#hamburger {
+		visibility: visible; /* display hamburger button below this width */
+	}
+
+	.nav {
+		visibility: hidden;
+	}
+
+}
+
+@media only screen and (max-width: 850px) {
+	#teamphoto {
+		float: none;
+		width: 85%;
+		display: inline-block; /* center photo at this size and below */
+	}
+
+	div.section {
+		width: 90%;
+	}
+
+}
+
+@media only screen and (max-width: 455px) {
+	#teamphoto {
+
+	}
+
+	.title {
+		width: 90%;
+	}
+}
+
+/*.ChristinaSpeech {
+	float: left;
+}*/
+.bubblewrap {
+	float: left;
+	width: 856px;
+}
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+   
+.portrait .speechwords {
+	visibility:hidden;
+	margin-left: 0px;
+}
+
+.portrait:hover .speechwords {
 	position: relative;
-	left: 260px;
+	left: 130px;
+	top: -240px;
 	visibility:visible;
 }
 
-p.bubble
+/*this didn't work, but we need something like this otherwise the hover area is huge*/
+/*---------------------------------*/
+/*#trigger:hover .ChristinaSpeech {
+	position: relative;
+	left: 10px;
+	top: -140px;
+	visibility: visible;
+}*/
+
+
+/*img.hover:hover .ChristinaSpeech {
+	position: relative;
+	left: 10px;
+	top: -140px;
+	visibility: visible;
+}*/
+/*---------------------------------*/
+
+/*p.bubble
 {
 	color: #000;
 	position: relative;
@@ -69,19 +208,36 @@ p.bubble
 	-moz-border-radius: 30px;
 	border-radius: 30px;
 	z-index: 10;
-}
+}*/
 
-p.thought
+.bubble
 {
-	width: 130px;
-	line-height: 100px;
-	-webkit-border-radius: 108px;
-	-moz-border-radius: 108px;
-	border-radius: 108px;
+	color: #000;
+	position: relative;
+	width: 300px;
+	height: 65px;
+	text-align: center;
+	line-height: 65px;
+	margin: 20px auto;
+	background-color: #fff;
+	border: 4px solid #000;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
 	z-index: 10;
 }
 
-p.bubble:before, p.bubble:after
+
+/*p.bubble:before, p.bubble:after
+{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	z-index: 10;
+}*/
+
+.bubble:before, .bubble:after
 {
 	content: ' ';
 	position: absolute;
@@ -90,7 +246,7 @@ p.bubble:before, p.bubble:after
 	z-index: 10;
 }
 
-p.speech:before
+/*p.speech:before
 {
 	left: 30px;
 	top: 100px;
@@ -106,31 +262,23 @@ p.speech:after
 	border: 15px solid;
 	border-color: #fff transparent transparent #fff;
 	z-index: 10;
-}
+}*/
 
-p.thought:before, p.thought:after
+.speech:before
 {
-	left: 10px;
-	top: 70px;
-	width: 40px;
-	height: 40px;
-	background-color: #fff;
-	border: 8px solid #000;
-	-webkit-border-radius: 28px;
-	-moz-border-radius: 28px;
-	border-radius: 28px;
+	left: 34px;
+	top: 65px;
+	border: 20px solid;
+	border-color: #000 transparent transparent #000;
 	z-index: 10;
 }
 
-p.thought:after
+.speech:after
 {
-	width: 20px;
-	height: 20px;
-	left: 5px;
-	top: 100px;
-	-webkit-border-radius: 18px;
-	-moz-border-radius: 18px;
-	border-radius: 18px;
+	left: 38px;
+	top: 65px;
+	border: 15px solid;
+	border-color: #fff transparent transparent #fff;
 	z-index: 10;
 }
 
@@ -145,6 +293,31 @@ p.thought:after
  
 .nav img:hover {
     margin-top: 2px;
+}
+
+.bio {
+	display: block;
+}
+
+.portrait {
+	float:left;
+	width:174px;
+	height: 174px;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+h6 {
+	font-weight: bold;
+	font-size:18px;
+	display:inline;
+	white-space:nowrap;
+}
+
+.biotext {
+	height:174px;
+	margin:40px;
 }
 
 @-webkit-keyframes snowflakes-fall{
