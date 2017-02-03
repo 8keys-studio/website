@@ -1,2 +1,2 @@
-# website
-8 Keys Studio website
+# 8 keys studio website
+The main site for 8keys Studio
