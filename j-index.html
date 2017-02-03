@@ -4,34 +4,41 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>8 Keys Studio</title>
 <link href="j-general.css" rel="stylesheet" type="text/css" />
+<!-- drawer.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.1/css/drawer.min.css">
+<!-- jquery & iScroll -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+<!-- drawer.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.1/js/drawer.min.js"></script>
 </head>
 
-<body>
+<body class="drawer drawer--left">
+
+
 <!-- <header>
   <img src="images/layout/hamburger.png" alt="Hamburger Menu Button" id="hamburger" />
 </header> -->
-<nav id="menu">
-  <header>
-    <h2>Menu</h2>
+  <header role="banner" class="burgertest">
+    <button type="button" class="drawer-toggle drawer-hamburger">
+      <span class="sr-only">toggle navigation</span>
+      <span class="drawer-hamburger-icon"></span>
+    </button>
+    <nav class="drawer-nav" role="navigation">
+      <ul class="drawer-menu">
+        <li><a class="drawer-brand" href="#">Brand</a></li>
+        <li><a class="drawer-menu-item" href="#">Nav1</a></li>
+        <li><a class="drawer-menu-item" href="#">Nav2</a></li>
+      </ul>
+    </nav>
   </header>
-</nav>
+  <script>
+  $(document).ready(function() {
+  $('.drawer').drawer();
+});
+  </script>
 
-<main id="panel">
-  <header>
-    <h2>Panel</h2>
-  </header>
-</main>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js" />
-<script>
-  var slideout = new Slideout({
-    'panel': document.getElementById('panel'),
-    'menu': document.getElementById('menu'),
-    'padding': 256,
-    'tolerance': 70
-  });
-</script>
-
+  <main role="main">
 <img class="title" src="images/layout/logo-01.png" width="" height="" alt="8 Keys Studio"/>
 
 <div class="nav">
@@ -41,7 +48,7 @@
 
 
 <div id="About" class="section">
-<img src="images/Team-Photo-01.png" width="" height="" alt="Team Photo" id="teamphoto" />
+<img src="images/Team-Photo.png" width="" height="" alt="Team Photo" id="teamphoto" />
 <h1>About</h1>
 8 Keys Studio began when our group of friends, who love playing video games, decided to try making some. Somehow, even though it probably should have been a bad idea to just jump into something without any real training, it ended up being really fun. We started out by participating in game jams and worked on developing ideas in our spare time.  We have made five games this way, and are working on our first complete project. 
 
@@ -50,21 +57,38 @@ We come from a range of backgrounds and professions, but we all like the interne
 
 <div id="Team" class="section">
 <h1>Team</h1>
-<div class="bio">
-<!-- div class="portrait" style="float:left; width: 144px;"> -->
-<div class="portrait" style="float:left; width: 1000px">
-<p>
-<div id="wrapper">
-	<img src="images/Team-Christina-01.png" width="144" height="160" alt="Portrait" class="hover" id="trigger" />
+
+<div class="bio clearfix">
+<div id="wrapper" class="portrait">
+  <img src="images/Team-Veronica.png" alt="Portrait" id="portraitpic" /><br />
   <div class="bubblewrap">
-    <div class="ChristinaSpeech bubble speech">text</div>
+    <div class="speechwords bubble speech">I always know where my towel is.</div>
   </div>
-</div>​
 </div>
-<p style="margin:auto;">
-Christina Goefron
-</p>
+<div class="biotext">
+    <h6>Veronica Grijalva</h6><br />
+    Cat Wrangling Officer<br />
+    Executive Scribbler
+<br /><br />
+Veronica works in the publishing industry and has a degree in creative writing. Storytelling is her main kick and she is a particular fan of multi-platform stories. She is obsessed with Virtual Reality, Artificial Intelligence, and pork products.
 </div>
+</div><p>
+
+
+<div class="bio clearfix">
+<div id="wrapper" class="portrait">
+  <img src="images/Team-Chris.png" alt="Portrait" id="portraitpic" /><br />
+  <div class="bubblewrap">
+    <div class="speechwords bubble speech">Everything is better with a Punisher skull.</div>
+  </div>
+</div>
+<div class="biotext">
+    <h6>Chris Bonilla</h6><br />
+    Infiltration and Espionage Expert<br /><br />
+Chris works in business software development, with a knack for solving unsolvable problems. He longs to make a transition to work on games that have a retro feel with a modern twist. He also sports an insatiable need for AR/VR and home automation equipment.
+</div>
+</div>
+
 </div>
 
 
@@ -90,7 +114,6 @@ Christina Goefron
   <div class="snowflake">
   <img src="images/Key-Dark-Chris-01.png" width="23" height="51" /> </div>
 </div>
-
-
+</main>
 </body>
 </html>
