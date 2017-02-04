@@ -3,49 +3,13 @@
 	- sub viewport for @media
 	- hamburger button below 1k px
 	- dock navbar
+	- speech bubbles need responsive positioning
+	- style and fill out hamburger menu
 
 */
 
 @charset "utf-8";
 /* CSS Document */
-
-.slideout-menu {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 256px;
-  min-height: 100vh;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  z-index: 0;
-  display: none;
-}
-
-.slideout-menu-left {
-  left: 0;
-}
-
-.slideout-menu-right {
-  right: 0;
-}
-
-.slideout-panel {
-  position: relative;
-  z-index: 1;
-  will-change: transform;
-  background-color: #FFF; /* A background-color is required */
-  min-height: 100vh;
-}
-
-.slideout-open,
-.slideout-open body,
-.slideout-open .slideout-panel {
-  overflow: hidden;
-}
-
-.slideout-open .slideout-menu {
-  display: block;
-}
 
 header {
 	position: fixed;
@@ -59,8 +23,9 @@ header {
 	visibility: hidden;
 }
 
-
-
+.burgertest {
+	visibility: hidden;
+}
 
 body {
 	background-color: #342469;
@@ -68,6 +33,10 @@ body {
 	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	color:#FFF;
 	font-size:13px;
+}
+
+p {
+	display: block;
 }
 
 img.title {
@@ -117,6 +86,10 @@ div.section {
 		visibility: visible; /* display hamburger button below this width */
 	}
 
+	.burgertest {
+		visibility: visible; /* display hamburger button below this width */
+	}
+
 	.nav {
 		visibility: hidden;
 	}
@@ -149,9 +122,10 @@ div.section {
 /*.ChristinaSpeech {
 	float: left;
 }*/
-.bubblewrap {
+div.bubblewrap {
 	float: left;
-	width: 856px;
+	width: 0px;
+	height: 0px;
 }
 
 .clearfix:after {
@@ -161,21 +135,16 @@ div.section {
    height: 0;
    clear: both;
 }
-
-.hover {
-	float: left;
-	width: 144px;
-}
    
-#wrapper .ChristinaSpeech {
+.portrait .speechwords {
 	visibility:hidden;
 	margin-left: 0px;
 }
 
-#wrapper:hover .ChristinaSpeech {
+.portrait:hover .speechwords {
 	position: relative;
-	left: 10px;
-	top: -140px;
+	left: 130px;
+	top: -240px;
 	visibility:visible;
 }
 
@@ -218,28 +187,19 @@ div.section {
 {
 	color: #000;
 	position: relative;
-	width: 200px;
-	height: 100px;
+	width: 300px;
+	height: 65px;
 	text-align: center;
-	line-height: 100px;
-	margin: 60px auto;
+	line-height: 65px;
+	margin: 20px auto;
 	background-color: #fff;
-	border: 8px solid #000;
+	border: 4px solid #000;
 	-webkit-border-radius: 30px;
 	-moz-border-radius: 30px;
 	border-radius: 30px;
 	z-index: 10;
 }
 
-p.thought
-{
-	width: 130px;
-	line-height: 100px;
-	-webkit-border-radius: 108px;
-	-moz-border-radius: 108px;
-	border-radius: 108px;
-	z-index: 10;
-}
 
 /*p.bubble:before, p.bubble:after
 {
@@ -279,9 +239,9 @@ p.speech:after
 
 .speech:before
 {
-	left: 30px;
-	top: 100px;
-	border: 25px solid;
+	left: 34px;
+	top: 65px;
+	border: 20px solid;
 	border-color: #000 transparent transparent #000;
 	z-index: 10;
 }
@@ -289,35 +249,9 @@ p.speech:after
 .speech:after
 {
 	left: 38px;
-	top: 100px;
+	top: 65px;
 	border: 15px solid;
 	border-color: #fff transparent transparent #fff;
-	z-index: 10;
-}
-
-p.thought:before, p.thought:after
-{
-	left: 10px;
-	top: 70px;
-	width: 40px;
-	height: 40px;
-	background-color: #fff;
-	border: 8px solid #000;
-	-webkit-border-radius: 28px;
-	-moz-border-radius: 28px;
-	border-radius: 28px;
-	z-index: 10;
-}
-
-p.thought:after
-{
-	width: 20px;
-	height: 20px;
-	left: 5px;
-	top: 100px;
-	-webkit-border-radius: 18px;
-	-moz-border-radius: 18px;
-	border-radius: 18px;
 	z-index: 10;
 }
 
@@ -332,6 +266,43 @@ p.thought:after
  
 .nav img:hover {
     margin-top: 2px;
+}
+
+.bio {
+	display: block;
+	padding-bottom: 10px;
+}
+
+.portrait {
+	float:left;
+/*	width:174px;
+	height: 174px;
+*/	
+	width: 20%;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#portraitpic {
+	width: 100%;
+	max-width: 125px;
+	height: auto;
+}
+
+h6 {
+	font-weight: bold;
+	font-size:18px;
+	display:inline;
+	white-space:nowrap;
+}
+
+.biotext {
+	float:left;
+	width: 70%;
+/*	height:174px;
+	margin:40px;*/
+	padding-left: 10%;
 }
 
 @-webkit-keyframes snowflakes-fall{
@@ -401,6 +372,5 @@ p.thought:after
 .snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:25s,1s,9s;animation-delay:25s,1s,9s;}
 .snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:30s,0s,5s;animation-delay:30s,0s,5s;}
 .snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:15s,1.5s,2s;animation-delay:15s,1.5s,2s;}
-
 
 
