@@ -3,49 +3,13 @@
 	- sub viewport for @media
 	- hamburger button below 1k px
 	- dock navbar
+	- speech bubbles need responsive positioning
+	- style and fill out hamburger menu
 
 */
 
 @charset "utf-8";
 /* CSS Document */
-
-.slideout-menu {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 256px;
-  min-height: 100vh;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  z-index: 0;
-  display: none;
-}
-
-.slideout-menu-left {
-  left: 0;
-}
-
-.slideout-menu-right {
-  right: 0;
-}
-
-.slideout-panel {
-  position: relative;
-  z-index: 1;
-  will-change: transform;
-  background-color: #FFF; /* A background-color is required */
-  min-height: 100vh;
-}
-
-.slideout-open,
-.slideout-open body,
-.slideout-open .slideout-panel {
-  overflow: hidden;
-}
-
-.slideout-open .slideout-menu {
-  display: block;
-}
 
 header {
 	position: fixed;
@@ -59,12 +23,26 @@ header {
 	visibility: hidden;
 }
 
+.burgertest {
+	visibility: hidden;
+}
+
 body {
 	background-color: #342469;
 	font:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	color:#FFF;
 	font-size:13px;
+}
+
+a {
+	color: #FF6;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #C10156;
+	text-decoration: none;
 }
 
 p {
@@ -104,8 +82,12 @@ div.section {
 	margin:auto;
 	text-align: justify;
 	z-index: 7;
+	margin-bottom: 50px;
 }
 
+img.heading {
+	margin: 5px;
+}
 
 #teamphoto {
 	float: right;
@@ -115,6 +97,10 @@ div.section {
 @media only screen and (max-width: 1000px) {
 
 	#hamburger {
+		visibility: visible; /* display hamburger button below this width */
+	}
+
+	.burgertest {
 		visibility: visible; /* display hamburger button below this width */
 	}
 
@@ -150,9 +136,10 @@ div.section {
 /*.ChristinaSpeech {
 	float: left;
 }*/
-.bubblewrap {
+div.bubblewrap {
 	float: left;
-	width: 856px;
+	width: 0px;
+	height: 0px;
 }
 
 .clearfix:after {
@@ -297,15 +284,24 @@ p.speech:after
 
 .bio {
 	display: block;
+	padding-bottom: 40px;
 }
 
 .portrait {
 	float:left;
-	width:174px;
+/*	width:174px;
 	height: 174px;
+*/	
+	width: 20%;
 	text-align:center;
 	margin-left:auto;
 	margin-right:auto;
+}
+
+#portraitpic {
+	width: 100%;
+	max-width: 125px;
+	height: auto;
 }
 
 h6 {
@@ -313,11 +309,15 @@ h6 {
 	font-size:18px;
 	display:inline;
 	white-space:nowrap;
+	color: #7CC142;
 }
 
 .biotext {
-	height:174px;
-	margin:40px;
+	float:left;
+	width: 70%;
+/*	height:174px;
+	margin:40px;*/
+	padding-left: 10%;
 }
 
 @-webkit-keyframes snowflakes-fall{

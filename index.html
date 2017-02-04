@@ -4,34 +4,41 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>8 Keys Studio</title>
 <link href="general.css" rel="stylesheet" type="text/css" />
+<!-- drawer.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.1/css/drawer.min.css">
+<!-- jquery & iScroll -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+<!-- drawer.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.1/js/drawer.min.js"></script>
 </head>
 
-<body>
+<body class="drawer drawer--left">
+
+
 <!-- <header>
   <img src="images/layout/hamburger.png" alt="Hamburger Menu Button" id="hamburger" />
 </header> -->
-<nav id="menu">
-  <header>
-    <h2>Menu</h2>
+  <header role="banner" class="burgertest">
+    <button type="button" class="drawer-toggle drawer-hamburger">
+      <span class="sr-only">toggle navigation</span>
+      <span class="drawer-hamburger-icon"></span>
+    </button>
+    <nav class="drawer-nav" role="navigation">
+      <ul class="drawer-menu">
+        <li><a class="drawer-brand" href="#">Brand</a></li>
+        <li><a class="drawer-menu-item" href="#">Nav1</a></li>
+        <li><a class="drawer-menu-item" href="#">Nav2</a></li>
+      </ul>
+    </nav>
   </header>
-</nav>
+  <script>
+  $(document).ready(function() {
+  $('.drawer').drawer();
+});
+  </script>
 
-<main id="panel">
-  <header>
-    <h2>Panel</h2>
-  </header>
-</main>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js" />
-<script>
-  var slideout = new Slideout({
-    'panel': document.getElementById('panel'),
-    'menu': document.getElementById('menu'),
-    'padding': 256,
-    'tolerance': 70
-  });
-</script>
-
+  <main role="main">
 <img class="title" src="images/layout/logo-01.png" width="" height="" alt="8 Keys Studio"/>
 
 <div class="nav">
@@ -42,35 +49,32 @@
 
 <div id="About" class="section">
 <img src="images/Team-Photo.png" width="" height="" alt="Team Photo" id="teamphoto" />
-<h1>About</h1>
+<img class="heading" src="images/layout/Heading-About.png" alt="About" /><br /><br />
 8 Keys Studio began when our group of friends, who love playing video games, decided to try making some. Somehow, even though it probably should have been a bad idea to just jump into something without any real training, it ended up being really fun. We started out by participating in game jams and worked on developing ideas in our spare time.  We have made five games this way, and are working on our first complete project. 
 
 We come from a range of backgrounds and professions, but we all like the internet and coffee and cats. We never have any trouble finding a place to order together from on Seamless. We are based primarily in Brooklyn and New Jersey. </div>
 
 
 <div id="Team" class="section">
-<h1>Team</h1>
+<img class="heading" src="images/layout/Heading-Team.png" alt="Team" /><br /><br />
 
-<div class="bio">
+<div class="bio clearfix">
 <div id="wrapper" class="portrait">
-  <img src="images/Team-Veronica.png" alt="Portrait" id="trigger" /><br />
+  <img src="images/Team-Justin.png" alt="Portrait" id="portraitpic" /><br />
   <div class="bubblewrap">
-    <div class="speechwords bubble speech">I always know where my towel is.</div>
+    <div class="speechwords bubble speech">Never pay more than 20 bucks for a computer game.</div>
   </div>
 </div>
 <div class="biotext">
-    <h6>Veronica Grijalva</h6><br />
-    Cat Wrangling Officer<br />
-    Executive Scribbler
-<br /><br />
-Veronica works in the publishing industry and has a degree in creative writing. Storytelling is her main kick and she is a particular fan of multi-platform stories. She is obsessed with Virtual Reality, Artificial Intelligence, and pork products.
+    <h6>Justin Acker</h6><br />
+    Software Zymurgist and Chiptune Herder<br /><br />
+Justin's been coding games since about 1994, starting with custom scenarios for <a href="https://en.wikipedia.org/wiki/ZZT">ZZT</a> for MS-DOS. In his day job, he works as a coder-for-hire, specializing in medical practice management software. He loves to sing and play piano, and sometimes lends his musical talents to 8 Keys projects. In his off time, he participates in a competitive karaoke league. And wins. Sometimes.
 </div>
 </div>
 
-
-<div class="bio">
+<div class="bio clearfix">
 <div id="wrapper" class="portrait">
-  <img src="images/Team-Chris.png" alt="Portrait" id="trigger" /><br />
+  <img src="images/Team-Chris.png" alt="Portrait" id="portraitpic" /><br />
   <div class="bubblewrap">
     <div class="speechwords bubble speech">Everything is better with a Punisher skull.</div>
   </div>
@@ -82,7 +86,63 @@ Chris works in business software development, with a knack for solving unsolvabl
 </div>
 </div>
 
+<div class="bio clearfix">
+<div id="wrapper" class="portrait">
+  <img src="images/Team-Corinne.png" alt="Portrait" id="portraitpic" /><br />
+  <div class="bubblewrap">
+    <div class="speechwords bubble speech">I accept payment in ice cream.</div>
+  </div>
 </div>
+<div class="biotext">
+    <h6>Corinne Cohen</h6><br />
+    Art and Writing<br /><br />
+Corinne’s favorite types of games are world building, tower defense, and collecting, especially when collecting cute things. She is a student in the Digital Design Program at CCNY with a minor in creative writing. Her hobbies include riding a bike 40 miles straight once a year without training for it, and crafting.
+</div>
+</div>
+
+<div class="bio clearfix">
+<div id="wrapper" class="portrait">
+  <img src="images/Team-Christina.png" alt="Portrait" id="portraitpic" /><br />
+  <div class="bubblewrap">
+    <div class="speechwords bubble speech">I have nothing to say to you.</div>
+  </div>
+</div>
+<div class="biotext">
+    <h6>Christina Goefron</h6><br />
+    Chief Instigator<br /><br />
+Currently pursuing a BFA in Design and Technology with a concentration in Game Design from Parsons The New School. Loves multiplayer party games, emergent narrative, and making games about sandwiches in Unity.
+</div>
+</div>
+
+<div class="bio clearfix">
+  <div id="wrapper" class="portrait">
+  <img src="images/Team-Veronica.png" alt="Portrait" id="portraitpic" /><br />
+  <div class="bubblewrap">
+    <div class="speechwords bubble speech">I always know where my towel is.</div>
+  </div>
+</div>
+<div class="biotext">
+    <h6>Veronica Grijalva</h6><br />
+    Cat Wrangling Officer and Executive Scribbler
+<br /><br />
+Veronica works in the publishing industry and has a degree in creative writing. Storytelling is her main kick and she is a particular fan of multi-platform stories. She is obsessed with Virtual Reality, Artificial Intelligence, and pork products.
+</div>
+</div>
+
+</div>
+
+<div id="News" class="section">
+<img class="heading" src="images/layout/Heading-News.png" alt="News" /><br /><br />
+</div>
+
+<div id="Games" class="section">
+<img class="heading" src="images/layout/Heading-Games.png" alt="Games" /><br /><br />
+</div>
+
+<div id="Contact" class="section">
+<img class="heading" src="images/layout/Heading-Contact.png" alt="Contact" /><br /><br />
+</div>
+
 
 
 <div class="snowflakes" aria-hidden="true">
@@ -107,7 +167,6 @@ Chris works in business software development, with a knack for solving unsolvabl
   <div class="snowflake">
   <img src="images/Key-Dark-Chris-01.png" width="23" height="51" /> </div>
 </div>
-
-
+</main>
 </body>
 </html>
