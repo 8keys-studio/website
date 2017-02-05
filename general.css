@@ -5,6 +5,7 @@
 	- dock navbar
 	- speech bubbles need responsive positioning
 	- style and fill out hamburger menu
+	- fix alignment on persontitle class to be left
 
 */
 
@@ -69,7 +70,7 @@ div.nav {
 }
 
 div.spacer {
-	width:1000px;
+	width:850px;
 	height:30px;
 	display:block;
     margin-left: auto;	
@@ -92,7 +93,7 @@ img.heading {
 
 #teamphoto {
 	float: right;
-	margin: 25px;
+	margin: 10px 10px 10px 25px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -124,7 +125,15 @@ img.heading {
 
 }
 
+@media only screen and (max-width: 646px) {
+	
+div.section {
+	text-align: left;
+}
+}
+
 @media only screen and (max-width: 455px) {
+		
 	#teamphoto {
 
 	}
@@ -262,10 +271,12 @@ h6 {
 	font-size:16pt;
 	display:inline;
 	white-space:nowrap;
+	text-align:left;
 	color: #7CC142;
 }
 
-.persontitle {
+div.section div.biotext span.persontitle {
+	text-align: left;
 	font-weight:bold;
 	font-size: 14pt;
 }
@@ -276,6 +287,11 @@ h6 {
 /*	height:174px;
 	margin:40px;*/
 	padding-left: 10%;
+}
+
+div.tinykey {
+	float:left;
+	margin: 0px 10px 0px 0px;
 }
 
 @-webkit-keyframes snowflakes-fall{
@@ -345,3 +361,77 @@ h6 {
 .snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:25s,1s,9s;animation-delay:25s,1s,9s;}
 .snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:30s,0s,5s;animation-delay:30s,0s,5s;}
 .snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:15s,1.5s,2s;animation-delay:15s,1.5s,2s;}
+
+
+
+
+
+/* Bobbing speech bubbles */
+@-webkit-keyframes bob {
+  0% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+  50% {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+  }
+  100% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+}
+@keyframes bob {
+  0% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+  50% {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+  }
+  100% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+}
+@-webkit-keyframes bob-sink {
+  100% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+}
+@keyframes bob-sink {
+  100% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+}
+.bob {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-animation-name: bob-sink, bob;
+  animation-name: bob-sink, bob;
+  -webkit-animation-duration: .3s, 1.5s;
+  animation-duration: .3s, 1.5s;
+  -webkit-animation-delay: 0s, .3s;
+  animation-delay: 0s, .3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
+}
+
+
+
+
+
+
+
